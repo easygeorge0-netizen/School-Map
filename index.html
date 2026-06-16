@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Greenfield University — Campus Map</title>
+<title>Campus Navigator</title>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
 <style>
@@ -235,8 +235,8 @@
   <div class="logo">
     <div class="logo-icon">🎓</div>
     <div class="logo-text">
-      <h1>Greenfield University</h1>
-      <p>Campus Navigator</p>
+      <h1>Campus Navigator</h1>
+      <p>Live campus map</p>
     </div>
   </div>
   <div class="gps-badge">
@@ -307,57 +307,63 @@
 // ─────────────────────────────────────────────
 //  CONFIGURATION — replace with your real data
 // ─────────────────────────────────────────────
-const SCHOOL_CENTER = { lat: 6.6055, lng: 3.3510 };
-const SCHOOL_NAME   = "Greenfield University";
+const SCHOOL_CENTER = { lat: 4.5663, lng: 7.5573 };
+const SCHOOL_NAME   = "Your School";
 
 const FACILITIES = [
   {
-    id: 1, name: "Main Library", cat: "Academic",
-    lat: 6.6060, lng: 3.3515, color: "#3b82f6", icon: "📚",
-    img: "https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=600&q=80",
-    desc: "A 4-floor central library with over 50,000 books, digital archives, study pods, and 24/7 reading rooms. Free Wi-Fi throughout."
+    id: 1, name: "Engineering Block", cat: "Academic",
+    lat: 4.5666008, lng: 7.5573482, color: "#3b82f6", icon: "⚙️",
+    img: "img/engineering.jpg",
+    desc: "Add your description here."
   },
   {
-    id: 2, name: "Science Complex", cat: "Academic",
-    lat: 6.6048, lng: 3.3522, color: "#3b82f6", icon: "🔬",
-    img: "https://images.unsplash.com/photo-1562774053-701939374585?w=600&q=80",
-    desc: "Houses the Physics, Chemistry and Biology labs. Home to cutting-edge research equipment and innovation labs open to all students."
+    id: 2, name: "Library", cat: "Academic",
+    lat: 4.5669802, lng: 7.5571863, color: "#3b82f6", icon: "📚",
+    img: "img/library.jpg",
+    desc: "Add your description here."
   },
   {
-    id: 3, name: "Sports Arena", cat: "Recreation",
-    lat: 6.6065, lng: 3.3498, color: "#10b981", icon: "⚽",
-    img: "https://images.unsplash.com/photo-1546519638-68e109498ffc?w=600&q=80",
-    desc: "Multi-purpose sports complex with football pitch, basketball court, swimming pool and an Olympic-grade 400m running track."
+    id: 3, name: "Vice Chancellor's Office", cat: "Admin",
+    lat: 4.5669056, lng: 7.5572473, color: "#8b5cf6", icon: "🏛️",
+    img: "img/vc-office.jpg",
+    desc: "Add your description here."
   },
   {
-    id: 4, name: "Student Union Building", cat: "Social",
-    lat: 6.6058, lng: 3.3503, color: "#ec4899", icon: "🏛️",
-    img: "https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?w=600&q=80",
-    desc: "Student government HQ, event hall, student clubs hub, and café. The social heartbeat of campus life."
+    id: 4, name: "General Studies Building", cat: "Academic",
+    lat: 4.5672165, lng: 7.5572547, color: "#3b82f6", icon: "🏫",
+    img: "img/general-building.jpg",
+    desc: "Add your description here."
   },
   {
-    id: 5, name: "Medical Centre", cat: "Health",
-    lat: 6.6044, lng: 3.3505, color: "#ef4444", icon: "🏥",
-    img: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&q=80",
-    desc: "Full-service campus clinic with doctors, nurses and a pharmacy. Open 8am–8pm weekdays, emergency service available 24/7."
+    id: 5, name: "E-Library", cat: "Academic",
+    lat: 4.5672723, lng: 7.5576530, color: "#10b981", icon: "💻",
+    img: "img/elibrary.jpg",
+    desc: "Add your description here."
   },
   {
-    id: 6, name: "Engineering Block", cat: "Academic",
-    lat: 6.6050, lng: 3.3530, color: "#3b82f6", icon: "⚙️",
-    img: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&q=80",
-    desc: "Faculty of Engineering with dedicated computer labs, fabrication workshop, robotics room and project incubation spaces."
+    id: 6, name: "Refectory Hall", cat: "Dining",
+    lat: 4.5673441, lng: 7.5582612, color: "#f59e0b", icon: "🍽️",
+    img: "img/refectory.jpg",
+    desc: "Add your description here."
   },
   {
-    id: 7, name: "Main Cafeteria", cat: "Dining",
-    lat: 6.6055, lng: 3.3495, color: "#f59e0b", icon: "🍽️",
-    img: "https://images.unsplash.com/photo-1567521464027-f127ff144326?w=600&q=80",
-    desc: "Largest dining hall on campus serving breakfast, lunch and dinner. Over 10 food stations with local and continental options."
+    id: 7, name: "SPASS Block", cat: "Academic",
+    lat: 4.5671640, lng: 7.5570347, color: "#3b82f6", icon: "🔬",
+    img: "img/spass.jpg",
+    desc: "Add your description here."
   },
   {
-    id: 8, name: "Administration Block", cat: "Admin",
-    lat: 6.6062, lng: 3.3510, color: "#8b5cf6", icon: "🏢",
-    img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80",
-    desc: "Central administration offices including the Registrar, Bursary, Student Affairs and Vice Chancellor's office."
+    id: 8, name: "SCIT / SAFT", cat: "Academic",
+    lat: 4.5659197, lng: 7.5568325, color: "#3b82f6", icon: "🖥️",
+    img: "img/scit.jpg",
+    desc: "Add your description here."
+  },
+  {
+    id: 9, name: "Pavilion / Bursary Block", cat: "Admin",
+    lat: 4.5648462, lng: 7.5575286, color: "#8b5cf6", icon: "🏦",
+    img: "img/bursary.jpg",
+    desc: "Add your description here."
   }
 ];
 
