@@ -574,6 +574,10 @@ function showDirections() {
   ).join('');
 
   document.getElementById('dir-panel').classList.add('open');
+  // Hide the facility popup so directions are visible
+  const popup = document.getElementById('popup');
+  popup.classList.remove('open');
+  setTimeout(() => { popup.style.display = 'none'; }, 200);
 }
 
 function closeDir() {
